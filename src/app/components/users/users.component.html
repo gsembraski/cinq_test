@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="col-md-4 col-mobile">
+        <div class="form-group">
+            <label class="control-label">Filter by name</label>
+            <input #inputFind class="form-control" placeholder="&#xF002;" (keydown)="getUsers(inputFind.value)" />
+        </div>
+    </div>
+    <div class="col-md-4 col-mobile">
+        <div class="form-group">
+            <button type="button" class="btn btn-danger btn-block margin-top-button" (click)="deleteSelected()"> Delete Selected
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-md-4 col-mobile">
+        <div class="form-group">
+            <button type="button" class="btn btn-info btn-block margin-top-button" (click)="download()"> Download
+                <i class="fa fa-download"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row desktop">
+    <div class="col-md-12">
+        <div class="form-group">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="min-width">
+                                <input type="checkbox" #checkAll (change)="setCheck(checkAll.checked)" class="form-check-input" [disabled]="isNotChecked()"
+                                />
+                            </th>
+                            <th>Name</th>
+                            <th class="th-actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of userList">
+                            <td class="min-width">
+                                <input #checkitem type="checkbox" class="form-check-input" [checked]="item.checked" (change)="setCheckItem(item.id, checkitem.checked, checkAll)"
+                                />
+                            </td>
+                            <td>{{item.firstName}} {{item.lastName}}</td>
+                            <td class="td-actions">
+                                <button type="button" class="btn btn-sm btn-danger btn-actions" (click)="deleteItem(item.id)"> Delete
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-secondary btn-actions" (click)="goToUserDatails(item.id)">
+                                    Show
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">
+                                <strong>{{getCountSelectec()}} itens selected</strong>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mobile">
+    <div class="row">
+        <div class="col-sm-6 col-xs-12" *ngFor="let item of userList">
+            <div class="form-group">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.firstName}} {{item.lastName}}</h5>
+
+                        <div class="card-text">
+                            <strong>Age: </strong>{{item.age}}
+                        </div>
+                        <div class="card-text">
+                            <strong>Description: </strong>{{item.description}}
+                        </div>
+                        <input #checkitem type="checkbox" class="form-check-input" [checked]="item.checked" (change)="setCheckItem(item.id, checkitem.checked)"
+                        />
+                        <button type="button" class="btn btn-sm btn-secondary btn-actions" (click)="goToUserDatails(item.id)">
+                            Show
+                            <i class="fa fa-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-danger btn-actions" (click)="deleteItem(item.id)"> Delete
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <strong>{{getCountSelectec()}} itens selected</strong>
+            </div>
+        </div>
+    </div>
+</div>

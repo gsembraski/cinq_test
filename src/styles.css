@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+.container {
+    margin-top: 5%;
+}
+
+.navbar-dark .navbar-brand {
+    color: #fff !important;
+}
+
+input {
+    font-family: FontAwesome, "Open Sans", Verdana, sans-serif !important;
+}
+
+.desktop {
+    display: none !important;
+}
+
+.mobile {
+    display: block !important;
+    width: 100%;
+    margin: 0 !important;
+}
+
+.td-actions {
+    width: 190px;
+}
+
+.th-actions {
+    width: 190px;
+    text-align: center;
+}
+
+.min-width {
+    width: 15px;
+}
+
+.btn-back {
+    padding: 0 !important;
+}
+
+.btn-user-details {
+    margin-right: 5px !important;
+}
+
+@media (min-width:1024px) {
+    .margin-top-button {
+        margin-top: 31px;
+    }
+    .desktop {
+        display: block !important;
+        width: 100%;
+        margin: 0 !important;
+    }
+    .mobile {
+        display: none !important;
+    }
+    .btn-actions {
+        margin: 0 5px !important;
+    }
+    .form-check-input {
+        position: relative !important;
+        margin: 0 !important;
+    }
+}
+
+@media(max-width:1023px) {
+    .col-mobile {
+        position: relative !important;
+        width: 100% !important;
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    .btn-actions {
+        margin: 0 0 0 5px !important;
+        float: right;
+    }
+    .form-check-input {
+        position: relative !important;
+        transform: scale(2);
+        margin-top: 13px!important;
+        margin-left: 8px !important;
+        -ms-transform: scale(2);
+        -moz-transform: scale(2);
+        -webkit-transform: scale(2);
+        -o-transform: scale(2);
+    }
+}

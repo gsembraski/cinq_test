@@ -1,0 +1,29 @@
+<div class="card">
+    <h5 class="card-header">User Details</h5>
+    <div class="card-body">
+        <div class="card-text form-group">
+            <label class="control-label">First Name</label>
+            <input class="form-control" [(ngModel)]="userItem.firstName" />
+        </div>
+
+        <div class="card-text form-group">
+            <label class="control-label">Last Name</label>
+            <input class="form-control" [(ngModel)]="userItem.lastName" />
+        </div>
+
+        <div class="card-text">
+            <strong>Age: </strong>{{userItem.age}}
+        </div>
+        <div class="card-text">
+            <strong>Description: </strong>{{userItem.description}}
+        </div>
+        <div class="card-text">
+            <button type="button" class="btn btn-success btn-user-details" (click)="save()">
+                Save
+            </button>
+            <button type="button" class="btn btn-danger btn-user-details" (click)="cancel()">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
